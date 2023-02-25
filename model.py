@@ -4,32 +4,30 @@ import matplotlib.pyplot as plt
 import random as rand
 n = 2
 
-matrix = np.matrix('1 .1 .2; .9 1 .3;1 1 1') #Trust scores
+matrix = np.array([[1.0, 1.0],[1.0, 1.0]]) #Trust scores
 
-agents = [np.array([-1,1,.5])] #Initial stance on opinion
+agents = np.vstack(np.array([1.0, -1.0])) #Initial stance on opinion
 
 tick = 1 #The first tick is considered the initial state
 
 
-curr_agents = agents[0]
-
+curr_agents = agents[0:].copy()
 while(True):
-
+    next_agents = curr_agents.copy()
     #Plot the data
-    plt.plot(agents)
+    for i in range(n):
+        plt.plot(agents[i])
     plt.show(block=False)
     for i in range(n):
         sum = 0
         for j in range(n):
-
             if(i == j):
                 continue #The agent should not update its opinion on itself
-            #if(rand.random() < matrix[i,j]):
-            sum += matrix[i,j]*curr_agents[j] #This is not right
-        print(sum/(n*tick))
-        curr_agents[i] = curr_agents[i] + sum/(n*tick)
-    agents.append(curr_agents)
+            sum += matrix[i,j]*curr_agents[j]
+        next_agents[i] = curr_agents[i] + sum
+    agents = np.append(agents,next_agents,axis=1)
     tick+=1
+    curr_agents = np.vstack(agents[:,tick-1])
     
     while(True):
         userInput = input()
