@@ -1,0 +1,1 @@
+A modified french-degroot model that accounts for "resistance to change"
