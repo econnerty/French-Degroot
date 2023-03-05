@@ -8,12 +8,12 @@ import math
 # Todo: Import agents from a csv with their trust scores
 
 
-agents = np.vstack(np.random.rand(100)) #Initial stance on opinion
+agents = np.vstack(np.random.uniform(low=-1.0,high=1.0,size=100)) #Initial stance on opinion
 
 matrix = np.random.rand(len(agents),len(agents)) #Trust scores
 
 tick = 1 #The first tick is considered the initial state
-growth_rate = 1.15 #The rate at which the agents resist opinion change
+growth_rate = 1.25 #The rate at which the agents resist opinion change
 
 n = len(agents)
 
