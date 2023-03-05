@@ -13,7 +13,7 @@ agents = np.vstack(np.random.uniform(low=-1.0,high=1.0,size=100)) #Initial stanc
 matrix = np.random.rand(len(agents),len(agents)) #Trust scores
 
 tick = 1 #The first tick is considered the initial state
-growth_rate = 1.00 #The rate at which the agents resist opinion change
+growth_rate = 1.15 #The rate at which the agents resist opinion change
 
 n = len(agents)
 
@@ -42,6 +42,7 @@ while(True):
     
     time.sleep(.5)
     if (growth_rate >= math.inf):
-        time.sleep(2500)
+        plt.ioff()
+        plt.show()
         break
     
