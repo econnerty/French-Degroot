@@ -5,17 +5,18 @@ import random as rand
 import math
 
 
+n = 250 #Number of agents
+
 # Todo: Import realistic agents
 
 
-agents = np.vstack(np.random.uniform(low=-1.0,high=1.0,size=250)) #Initial stance on opinion
+agents = np.vstack(np.random.uniform(low=-1.0,high=1.0,size=n)) #Initial stance on opinion
 
-matrix = np.random.rand(len(agents),len(agents)) #Trust scores
+matrix = np.random.rand(n,n) #Trust scores
 
 tick = 1 #The first tick is considered the initial state
 growth_rate = 1.15 #The rate at which the agents resist opinion change
 
-n = len(agents)
 
 
 curr_agents = agents[0:].copy()
