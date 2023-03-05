@@ -38,7 +38,7 @@ while(True):
     tick+=1
     curr_agents = np.vstack(agents[:,tick-1])
     
-    growth_rate = growth_rate*growth_rate #idk why or how i decided this was right
+    growth_rate = growth_rate*growth_rate
     
     if (growth_rate >= math.inf):
         plt.ioff()
