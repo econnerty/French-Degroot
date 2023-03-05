@@ -5,7 +5,7 @@ import random as rand
 import math
 
 
-# Import realistic agents
+# Todo: Import realistic agents
 
 
 agents = np.vstack(np.random.uniform(low=-1.0,high=1.0,size=250)) #Initial stance on opinion
