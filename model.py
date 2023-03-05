@@ -2,15 +2,20 @@ import numpy as np
 import time
 import matplotlib.pyplot as plt
 import random as rand
-n = 3
+import math
+
 
 # Todo: Import agents from a csv with their trust scores
-matrix = np.array([[1.0, .21,.43],[.47, .44,.33],[0.0,.21,.20]]) #Trust scores
 
-agents = np.vstack(np.array([-.9, .65, -.124])) #Initial stance on opinion
+
+agents = np.vstack(np.random.rand(100)) #Initial stance on opinion
+
+matrix = np.random.rand(len(agents),len(agents)) #Trust scores
 
 tick = 1 #The first tick is considered the initial state
-growth_rate = 1.000
+growth_rate = 1.15 #The rate at which the agents resist opinion change
+
+n = len(agents)
 
 
 curr_agents = agents[0:].copy()
@@ -36,4 +41,6 @@ while(True):
     growth_rate = growth_rate*growth_rate #idk why or how i decided this was right
     
     time.sleep(.5)
+    if (growth_rate >= math.inf):
+        time.sleep(25)
     
