@@ -5,10 +5,10 @@ import random as rand
 import math
 
 
-# Todo: Import agents from a csv with their trust scores
+# Import realistic agents
 
 
-agents = np.vstack(np.random.uniform(low=-1.0,high=1.0,size=100)) #Initial stance on opinion
+agents = np.vstack(np.random.uniform(low=-1.0,high=1.0,size=250)) #Initial stance on opinion
 
 matrix = np.random.rand(len(agents),len(agents)) #Trust scores
 
@@ -40,7 +40,6 @@ while(True):
     
     growth_rate = growth_rate*growth_rate #idk why or how i decided this was right
     
-    time.sleep(.5)
     if (growth_rate >= math.inf):
         plt.ioff()
         plt.show()
